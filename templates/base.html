@@ -16,9 +16,7 @@
       <img src="{% static 'img/myke.jpg' %}" class="logo" />
       <ul class="navigtion">
         <li><a href="#">Home</a></li>
-        <li><a href="#trending" class="active">Trending</a></li>
-        <br>
-        <br>
+        <li><a href="#trending" class="trend">Trending </a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="#"></a></li>
       </ul>
@@ -113,17 +111,19 @@
 
       ul {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         justify-content: center;
         align-items: center;
-        font-weight: ;
+        font-weight: 300;
         width: 100%;
         height: 80px;
       }
 
       header ul li {
         list-style: none;
-        width: 60px;
+        
+        justify-content:center;
+        align-items: center;
       }
 
       header ul li a {
@@ -131,7 +131,8 @@
         text-decoration: none;
         color: white;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
+        gap:8px;
       }
 
       .logo {
@@ -143,13 +144,13 @@
         letter-spacing: 0.1em;
       }
       ul .navigation {
-        margin-left: 2px;
-        width: 60px;
+        width: 50px;
       }
 
       header ul li {
         list-style: none;
       }
+      
       /* == END OF HEADER==*/
 
       /* == DARK MODE == */
