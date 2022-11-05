@@ -1,0 +1,302 @@
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="dsecription" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header class="group">
+      <img src="{% static 'img/myke.jpg' %}" class="logo" />
+      <ul class="navigtion">
+        <li><a href="#">Home</a></li>
+        <li><a href="#trending" class="active">Trending</a></li>
+        <br>
+        <br>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </header>
+
+    <button onclick="myFunction()" class="toggle-dark">DARK</button>
+    <div class="header">
+      <h2>Welcome to Mykes Blog</h2>
+    </div>
+    <!--===ACTUAL CONTENT==-->
+    {% block content %} {% endblock content %}
+
+    <hr />
+    <div class="footer">
+      <p><i> Dikachi-official &#169</i> </p>
+      <p><small>Copyright 2022</small></p>
+    </div>
+    <!--== FOR THE NAV BAR ICONS ==-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!--== FOR DARK MODE ==-->
+    <script>
+      function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+    </script>
+
+    <!--== CSS CODE ==-->
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        color: grey;
+        padding: 20px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* == NAVBAR == */
+      header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: -10px 5px 10px;
+        background-color: rgb(11, 11, 46);
+      }
+
+      .logo img {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        width: 45px;
+        height: 45px;
+        border-radius: 2rem;
+        left: -60px;
+        margin-top: 10px;
+      }
+
+      .fakeimg img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .group {
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        width: 100%;
+      }
+
+      ul {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        font-weight: ;
+        width: 100%;
+        height: 80px;
+      }
+
+      header ul li {
+        list-style: none;
+        width: 60px;
+      }
+
+      header ul li a {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      .logo {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      ul .navigation {
+        margin-left: 2px;
+        width: 60px;
+      }
+
+      header ul li {
+        list-style: none;
+      }
+      /* == END OF HEADER==*/
+
+      /* == DARK MODE == */
+      .toggle-dark {
+        margin-left: 1%;
+        height: 28px;
+        font-size: 11px;
+        margin-right: 80%;
+        font-weight: bold;
+        font-size: smaller;
+        margin-top: 80px;
+        border-radius: 25px;
+        color: white;
+        width: 70px;
+        background: linear-gradient(
+          rgb(70, 70, 207) 0%,
+          rgb(139, 139, 176) 30%
+        );
+      }
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+      .submit {
+        color: white;
+        background-color: lightblue;
+        border-radius: 2rem;
+        width: 70px;
+      }
+      /* == END OF DARK MODE == */
+
+      /*== READMORE ==*/
+      .btn {
+        display: inline-block;
+        background: linear-gradient(
+          rgb(70, 70, 207) 0%,
+          rgb(139, 139, 176) 30%
+        );
+        color: #fff;
+        padding: 8px 20px;
+        margin: 30px 30px;
+        border-radius: 30px;
+        transition: 0.5s;
+      }
+
+      .btn:hover {
+        background: #563434;
+      }
+
+      /* == Header/Blog Title == */
+      .header {
+        padding: 50px;
+        text-align: center;
+      }
+
+      /* Create two unequal columns that floats next to each other */
+      /* Left column */
+      .leftcolumn {
+        float: left;
+        margin-left: 20px;
+        width: 45%;
+      }
+
+      /* Right column */
+      .rightcolumn {
+        float: right;
+        width: 35%;
+        padding-left: 20px;
+      }
+
+      /* Fake image */
+      .fakeimg {
+        background-color: #aaa;
+        width: 90%;
+        border: solid, #aaa, 17px;
+        padding: 5px;
+      }
+
+      /* Add a card effect for articles */
+      .card {
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .container {
+        padding: 64px;
+      }
+
+      .row {
+        padding: 2px;
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+
+      .card img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+      .column-66 {
+        float: left;
+        width: 50.66666%;
+        padding: 5px;
+      }
+
+      /* 1/3 column */
+      .column-33 {
+        float: left;
+        width: 33.33333%;
+        padding: 20px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+        color:white;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: -10px 5px 10px;
+        background-color: rgb(11, 11, 46);
+      }
+
+      /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 800px) {
+        .leftcolumn,
+        .rightcolumn {
+          width: 100%;
+          padding: 0;
+        }
+      }
+
+      /* Add responsiveness - make the columns appear on top of each other instead of next to each other on small screens */
+      @media screen and (max-width: 1000px) {
+        .column-66,
+        .column-33 {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </body>
+</html>

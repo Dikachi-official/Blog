@@ -1,0 +1,264 @@
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="dsecription" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header class="group">
+      <img src="{% static 'img/myke.jpg' %}" class="logo" />
+      <ul class="navigtion">
+        <li><a href="{% url 'home' %}" class="actively">Home</a></li>
+      </ul>
+    </header>
+
+    <button onclick="myFunction()" class="toggle-dark">DARK</button>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>About Me</h2>
+        </div>
+        <div class="akeimg">
+          <img src="{% static 'img/mephoto.jpg' %}" />
+        </div>
+        
+        <div class="connect">
+          <h3>Connect </h3>
+            <a href="#" class="logo"><img src="{% static 'img/git.png' %}"></a>
+            <a href="#" class="logo" ><img src="{% static 'img/linkedin.png' %}"></a>
+            <a href="#" class="logo" ><img src="{% static 'img/twitter.png' %}"></a>
+        </div>
+      </div>
+          
+      <div class="rightcolumn">
+        <div class="card">
+          <p>Biography
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>  
+
+
+
+    <!--=== FOOTER ===-->
+    <div class="footer">
+      <p><i> Dikachi-official &#169</i></p>
+      <p><small>Copyright 2022</small></p>
+    </div>
+
+
+
+    
+    <!--== FOR DARK MODE ==-->
+    <script>
+      function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+    </script>
+
+
+
+    <!--=== CSS STYLING ===-->
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        padding: 0;
+        margin:0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        color: grey;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* == NAVBAR == */
+      header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: -10px 5px 10px;
+        background-color: rgb(11, 11, 46);
+      }
+
+      .logo img {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        width: 45px;
+        height: 45px;
+        border-radius: 2rem;
+        left: -60px;
+        margin-top: 10px;
+      }
+
+      .group {
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        width: 100%;
+      }
+
+      ul {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        font-weight: ;
+        width: 100%;
+        height: 80px;
+      }
+
+      header ul li {
+        list-style: none;
+        width: 60px;
+      }
+
+      header ul li a {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      .logo {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      ul .navigation {
+        margin-left: 2px;
+        width: 60px;
+      }
+
+      header ul li {
+        list-style: none;
+      }
+
+      header ul li .actively {
+        color: #fff;
+      }
+      /* == END OF HEADER==*/
+
+
+
+
+      /* == DARK MODE == */
+      .toggle-dark {
+        margin-left: 1%;
+        height: 28px;
+        font-size: 11px;
+        margin-right: 80%;
+        font-weight: bold;
+        font-size: smaller;
+        margin-top: 80px;
+        border-radius: 25px;
+        color: white;
+        width: 70px;
+        background: linear-gradient(
+          rgb(70, 70, 207) 0%,
+          rgb(139, 139, 176) 30%
+        );
+      }
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+      .submit {
+        color: white;
+        background-color: lightblue;
+        border-radius: 2rem;
+        width: 70px;
+      }
+      /* == END OF DARK MODE == */
+
+
+
+
+      /* Create two unequal columns that floats next to each other */
+      /* Left column */
+      .leftcolumn {
+        float: left;
+        margin-left: 20px;
+        width: 35%;
+      }
+
+      /* Right column */
+      .rightcolumn {
+        float: right;
+        width: 35%;
+        padding-left: 5px;
+      }
+
+      /* Fake image */
+      .akeimg {
+        border-radius: 35px;
+        color:white;
+      }
+
+      .akeimg  img{
+        border-radius: 100px;
+        width:40%;
+        border:10px;
+      }
+
+      .row {
+        padding: 2px;
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+
+      .connect .logo{
+        width:10px;
+        justify-content:space-between;
+        margin-right: 10px;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        color:white;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: 10px -5px 10px;
+        background-color: rgb(11, 11, 46);
+        margin-bottom:0;
+      }
+
+      /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 800px) {
+        .leftcolumn,
+        .rightcolumn {
+          width: 90%;
+          padding: 0;
+          height:40vh;
+        }
+      }
+
+      
+  
+    </style>
+  </body>
+</html>

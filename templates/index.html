@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% load static %}{% block content %}
+
+<div class="row">
+  <div class="leftcolumn"
+    <div class="card">
+      <h2>{{trending.title}}</h2>
+      <p>{{trending.created_on}}|{{trending.author}}</p>
+      <h5>Get Latest Stories around the world</h5>
+      <id ="trending">
+      <div class="fakeimg" style="height: 200px">
+        <img src="{{ trending.image.url }}" "width:40px;" "height: 40px">
+      </div>
+      <p>{{trending.content|truncatechars:"200"}}</p>
+      <a href="{% url  'readmore' trending.slug %}" class="btn">Read More &#8594</a>
+    </div>
+
+
+    <!--== SIDE DISPLAY OF ADVERT ==-->
+    <div class="rightcolumn">
+      <div class="card">
+        <input type="text" placeholder="Search..">
+        <i class="fa fa-search"></i>
+        <div class="fakeimg"><img src="{% static 'img/playermain.png' %}"/></div>
+        <p>Premier League season is back. Tune in</p>
+        <br /> 
+      </div>
+    </div>
+
+    <!--<div class="rightcolumn">
+      {% for post in posts %}
+      <div class="card">
+        <h3>{{post.title}}</h3>
+        <div class="fakeimg"><img src="{% static '{{post.image.url}}' %}"/></div>
+        <p>{{post.content|truncatechars:"100"}}</p>
+        <br />
+        <a href="{%url  'readmore' trending.slug %}" class="btn">Read More &#8594</a> 
+      </div>
+      {% endfor %}
+    </div>-->
+  </div>
+</div>
+<div class="container">
+  {% for post in posts %}
+  <div class="row">
+    <div class="column-66">
+      <div class="fakeimg" style="height: 200px">
+        <img src="{{post.image.url }}" "width:40px;" "height: 40px">
+      </div>
+      <h3>{{post.title}}</h3>
+      <!--== CONTENT ==-->
+      <p>
+        Written by:{{post.author}}|{{post.date}}
+        {{post.content|truncatechars:"100"}}
+      <p>
+       <!--== END OF CONTENT ==--> 
+      <a href="{% url  'readmore' post.slug %} " class="btn">Read More &#8594</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}
