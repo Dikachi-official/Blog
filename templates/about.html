@@ -22,10 +22,8 @@
     <button onclick="myFunction()" class="toggle-dark">DARK</button>
     <div class="row">
       <div class="Picturelayout">
-        <div class="card">
-          <h2>About Me</h2>
-          
-        </div>
+        
+        <h2>About Me</h2>
         <div class="akeimg">
           <img src="{% static 'img/mephoto.jpg' %}" />
         </div>
@@ -44,16 +42,31 @@
       <div class="blogdetails">
         <h2> About Us </h2>
         <div class="card">
-          <p>Myke Blog gives updates across a wide variety of products, daily news and services. We’ve made it our mission to make decisions easier by helping you choose from the top options available. Our team of editors and writers spend hours reviewing products and services, comparing features, and diving into the nitty-gritty details. This way, we give you top-notch lists and reviews saving you time, money, and headaches.</p>
+          <p>Myke Blog gives updates across a wide variety of products, daily news and services. 
+            We've made it our mission to make decisions easier by helping you choose from the top options available. 
+            Our team of editors and writers spend hours reviewing products and services, comparing features, 
+            and diving into the nitty-gritty details. This way, we give you top-notch lists and reviews saving you time, 
+            money, and headaches.</p>
         </div>
+        <h2> Our Mission </h2>
+        <div class="card">
+          <p>
+            We make it easy for anyone in the world to launch and grow their online presence, through education, 
+            high-quality products, and reliable support.</p>
+        </div> 
+        <div class="card2">
+        </div>
+        <div class="card3">
+          
+        </div>  
+          
       </div>
     </div>  
 
-
+    <hr/>
 
     <!--=== FOOTER ===-->
     <div class="footer">
-      <hr/>
       <p><i> Dikachi-official &#169</i></p>
       <p><small>Copyright 2022</small></p>
     </div>
@@ -234,6 +247,26 @@
         width:10px;
         justify-content:space-between;
         margin-right: 10px;
+      }
+
+      .card2{
+        width:100%;
+        height:250px;
+        background-color:#E6E6FA;
+        background-image: url("{% static 'img/ourwork2.png'%}");
+        background-repeat: no-repeat;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .card3 p{
+        font-family:sans-serif;
+        font-weight:800;
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+        font-size:20px;
+        display:inline-block;
       }
 
       /* Footer */
