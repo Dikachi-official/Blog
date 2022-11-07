@@ -21,9 +21,10 @@
 
     <button onclick="myFunction()" class="toggle-dark">DARK</button>
     <div class="row">
-      <div class="leftcolumn">
+      <div class="Picturelayout">
         <div class="card">
           <h2>About Me</h2>
+          
         </div>
         <div class="akeimg">
           <img src="{% static 'img/mephoto.jpg' %}" />
@@ -31,16 +32,19 @@
         
         <div class="connect">
           <h3>Connect </h3>
+          <p> Im accessible on these platforms</p>
             <a href="#" class="logo"><img src="{% static 'img/git.png' %}"></a>
             <a href="#" class="logo" ><img src="{% static 'img/linkedin.png' %}"></a>
             <a href="#" class="logo" ><img src="{% static 'img/twitter.png' %}"></a>
         </div>
       </div>
+     
           
-      <div class="rightcolumn">
+      
+      <div class="blogdetails">
+        <h2> About Us </h2>
         <div class="card">
-          <p>Biography
-          <i class="fa fa-github" aria-hidden="true"></i>
+          <p>Myke Blog gives updates across a wide variety of products, daily news and services. We’ve made it our mission to make decisions easier by helping you choose from the top options available. Our team of editors and writers spend hours reviewing products and services, comparing features, and diving into the nitty-gritty details. This way, we give you top-notch lists and reviews saving you time, money, and headaches.</p>
         </div>
       </div>
     </div>  
@@ -49,6 +53,7 @@
 
     <!--=== FOOTER ===-->
     <div class="footer">
+      <hr/>
       <p><i> Dikachi-official &#169</i></p>
       <p><small>Copyright 2022</small></p>
     </div>
@@ -197,32 +202,26 @@
 
 
 
-
-      /* Create two unequal columns that floats next to each other */
-      /* Left column */
-      .leftcolumn {
-        float: left;
-        margin-left: 20px;
-        width: 35%;
+      /* == BODY LAYOUT ==*/
+      .Picturelayout{
+        justify-content:center;
+        align-items:center;
       }
 
-      /* Right column */
-      .rightcolumn {
-        float: right;
-        width: 35%;
-        padding-left: 5px;
-      }
 
       /* Fake image */
       .akeimg {
-        border-radius: 35px;
+        border-radius: 125px;
         color:white;
       }
 
       .akeimg  img{
         border-radius: 100px;
-        width:40%;
-        border:10px;
+        width:90px;
+        height:100px;
+        border:15px, solid ;
+        margin-right:20px;
+        float:left;
       }
 
       .row {
@@ -241,10 +240,11 @@
       .footer {
         text-align: center;
         color:white;
-        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
         box-shadow: 10px -5px 10px;
         background-color: rgb(11, 11, 46);
         margin-bottom:0;
+        margin-top:30px;
       }
 
       /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
