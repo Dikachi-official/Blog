@@ -17,7 +17,7 @@ class Post(models.Model):
 
 
 class Meta:     #METADATA TO TELL DJANGO WHERE TO SORT DATA
-    arrangememt = ['-created_on']   #TO MAKE POST IN A DESCENDING ORDER BY POST DATE
+    arrangement = ['-created_on']   #TO MAKE POST IN A DESCENDING ORDER BY POST DATE
 
 
 def __str__(self):      #Dunder method(to identify posts by title)
