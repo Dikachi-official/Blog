@@ -4,7 +4,11 @@
   <div class="leftcolumn"
     <div class="card">
       <h2>{{trending.title}}</h2>
-      <p id="trending">{{trending.created_on}}|{{trending.author}}</p>
+      <p id="trending"><b>Date :</b> {{trending.created_on}}
+      </p>
+      <p>
+        <b>Writer :</b> {{trending.author}}
+      </p> 
       <h5>Get Latest Stories around the world</h5>
       <id ="trending">
       <div class="fakeimg" style="height: 200px">
@@ -15,14 +19,28 @@
     </div>
 
 
-    <!--== SIDE DISPLAY OF ADVERT ==-->
+    <!--== SIDE DISPLAY OF ADVERT BESIDE TRENDING==-->
     <div class="rightcolumn">
       <div class="card">
-        <input type="text" placeholder="Search..">
-        <i class="fa fa-search"></i>
+        <input type="text" placeholder="  Search..">
+        <i class="ri-search-line"></i>
+        <br/>
+        <br/>
         <div class="fakeimg"><img src="{% static 'img/playermain.png' %}"/></div>
         <p>Premier League season is back. Tune in</p>
         <br /> 
+      </div>
+  </div> 
+</div>   
+
+
+    <!--== SIDE DISPLAY OF ADVERT ==-->
+    <div class="rightcolumn">
+      <div class="card"> 
+        <div class="fakeimg"><img src="{% static 'img/Tinubu-Buhari.jpg' %}"/></div>
+        <p>Update on Nigerias' upcoming Presidential election</p>
+        <br />
+
       </div>
     </div>
 
@@ -39,6 +57,13 @@
     </div>-->
   </div>
 </div>
+<div>
+  <hr style="color: blue";/>
+  <h4 class="readalso"> READ ALSO</h4>
+  <p>"My husband na odogwu": Nigerian lady hypes her rich hubby, shares his video</p>
+  <hr style="color: blue";/>
+
+</div>
 <div class="container">
   {% for post in posts %}
   <div class="row">
@@ -49,13 +74,38 @@
       <h3>{{post.title}}</h3>
       <!--== CONTENT ==-->
       <p>
-        Written by:{{post.author}}|{{post.date}}
-        {{post.content|truncatechars:"100"}}
+        <b>Date : </b>{{post.date}}
+      </p>
       <p>
+        <b>Writer : </b>{{post.author}}
+      </p>
+      <p>  
+        {{post.content|truncatechars:"100"}}
+      </p>
        <!--== END OF CONTENT ==--> 
       <a href="{% url  'readmore' post.slug %} " class="btn">Read More &#8594</a>
     </div>
   </div>
   {% endfor %}
 </div>
+<h3 class="otherstories"> OTHER STORIES </h3>
+<div class=" grey"></div>
+<div class="section2">
+  <img src="">
+  <p>talks and talks</p>
+  <small>DEC 03, 2022</small>
+
+</div> 
+<hr/>
+
+<div class="section2">
+  <img src="">
+  <p>talks and talks</p>
+</div>
+<hr/>
+<div class="section2">
+  <img src="">
+  <p>talks and talks</p>
+</div>
+<hr/> 
 {% endblock content %}

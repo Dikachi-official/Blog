@@ -161,7 +161,6 @@ header ul li{
   
 /* Fake image */
 .fakeimg {
-    background-color: #aaa;
     width: 70%;
     border:solid, #aaa,  17px;
     padding: 30px;

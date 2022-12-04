@@ -22,8 +22,7 @@
     <button onclick="myFunction()" class="toggle-dark">DARK</button>
     <div class="row">
       <div class="Picturelayout">
-        
-        <h2>About Me</h2>
+        <br/>
         <div class="akeimg">
           <img src="{% static 'img/mephoto.jpg' %}" />
         </div>
@@ -55,6 +54,9 @@
             high-quality products, and a reliable support system.</p>
         </div> 
         <div class="card2">
+          <h2>Goal</h2>
+          <img src="{% static '' %}">
+          <p></p>
         </div>
         <div class="card3">
           
@@ -221,10 +223,16 @@
         align-items:center;
       }
 
+      .blogdetails h2{
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+      }
+
 
       /* Fake image */
       .akeimg {
-        border-radius: 125px;
+        border-radius: 50%;
         color:white;
       }
 
@@ -235,7 +243,7 @@
         border:5ch;
         border-width: 3px;
         border-color: grey;
-        border-style: outset;
+        border-style: none;
         margin-right:20px;
         float:left;
       }
