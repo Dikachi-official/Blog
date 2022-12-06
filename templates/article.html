@@ -53,8 +53,10 @@
         <b>Date: </b>{{post.created_on}}
         <br>
         {{post.content}}
-      <p>
-        <br>
+      </p>
+
+      <br>
+
        <!--== END OF CONTENT ==--> 
        <form class="commentsection"action="." method="POST">
         {% csrf_token %}
@@ -64,6 +66,8 @@
        </form>
        <div class="line"></div>
        <!--== SECTION FOR COMMENTS ==-->
+       <hr/>
+       <br/>
        {% for comment in comments %}
        <div class="commentsection">
 

@@ -24,7 +24,7 @@
       <div class="Picturelayout">
         <br/>
         <div class="akeimg">
-          <img src="{% static 'img/mephoto.jpg' %}" />
+          <img src="{% static 'img/myphoto.jpg' %}" />
         </div>
         
         <div class="connect">
@@ -34,19 +34,24 @@
             <a href="https://twitter.com/Deeka_official1?t=M-aFUxstJqPHSwUz6qJD-Q&s=09" target="_blank" class="logo" ><img src="{% static 'img/twitter.png' %}"></a>
         </div>
       </div>
+      <br/>
+      <hr/>
      
           
       
       <div class="blogdetails">
         <div class="card">
+          <h2>About Us</h2>
           <p>Myke Blog gives updates across a wide variety of products, daily news and services. 
             We've made it our mission to make decisions easier by helping you choose from the top options available. 
             Our team of editors and writers spend hours reviewing products and services, comparing features, 
             and diving into the nitty-gritty details. This way, we give you top-notch lists and reviews saving you time, 
-            money, and headaches.</p>
+            money, and headaches.
+          </p>
         </div>
-        <h2> Our Mission </h2>
+
         <div class="card">
+          <h2> Our Mission </h2>
           <p>
             We make it easy for anyone in the world to launch and grow their online presence, through education, 
             high-quality products, and a reliable support system.</p>
@@ -60,10 +65,30 @@
       <img src="{% static 'img/woman-walking.jpg' %}">
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
       </p>
     </div>
+    <h2 class="services">Services and Offers </h2>
+    <div class ="triple-section">
+      
+      <div class="single-triple">
+        <h4>Experience</h4>
+        <img src="{% static 'img/experience1.jpg' %}">
+        <p> Lorem Ipsum is simply a dummy text</p>
+      </div>  
+      <!--=== USABILITY SECTION ===-->
+      <div class="single-triple">
+        <h4>Usability</h4>
+        <img src="{% static 'img/usable.jpg' %}">
+        <p> Lorem Ipsum is simply a dummy text </p>
+      </div>
+      <!--=== INTERACTIVE DESIGN ===-->
+      <div class="single-triple">
+        <h4>Interactivity</h4>
+        <img src="{% static 'img/interactive.jpg' %}">
+        <p> Lorem Ipsum is simply a dummy text </p>
+      </div>
+    </div>  
 
     <hr/>
 
@@ -127,7 +152,7 @@
         width: 45px;
         height: 45px;
         border-radius: 2rem;
-        left: -60px;
+        /*left: -60px;*/
         margin-top: 10px;
       }
 
@@ -169,6 +194,7 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
       }
+
       ul .navigation {
         margin-left: 2px;
         width: 60px;
@@ -290,16 +316,44 @@
       }
 
       .goal-section img{
-        width:90%;
+        width:95%;
         height:300px;
-        margin-left:5%;
-        margin-right:5%;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        object-fit: cover;
+        background-attachment:fixed;
       }
 
       .goal-section p{
         margin-left:5%;
         margin-right:5%;
         margin-bottom:20px;
+      }
+
+      .services{
+        margin-left:20px;
+      }
+
+      .triple-section{
+        width:95%;
+        display:inline-flex;
+        margin-top:25px;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        margin-bottom:25px;
+      }
+
+      .single-triple{
+        width:30%;
+        margin-left:10px;
+        margin-right:10px;
+      }
+
+      .single-triple img{
+        width:90%;
+        height:40%;
+        border-radius:10px;
+        object-fit: cover;
       }
 
       /* Footer */

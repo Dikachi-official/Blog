@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 def readmore(request, slug):
-    post = Post.objects.get(slug = slug)    #TO GET
+    post = Post.objects.get(slug = slug)    
     comments = post.comment_set.all()       #TO GET ALL COMMENTS FROM A SPECIFIC BLOG POST
     form = CommentForm()  #GET "COMMENTFORM" FROM THE FRONTEND THROUGH A POST HTTP METHOD
     new_comment =  None
