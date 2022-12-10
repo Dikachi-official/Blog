@@ -34,7 +34,11 @@ def readmore(request, slug):
     return render(request, "article.html", context)    
 
 def about(request):
-    return render(request, 'about.html')      
+    return render(request, 'about.html')    
+
+
+def others(request):
+    return render(request, "others.html")      
 
 
 

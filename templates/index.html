@@ -68,7 +68,7 @@
   <div class="row">
     <div class="column-66">
       <div class="fakeimg" style="height: 200px">
-        <img src="{{post.image.url }}" "width:40px;" "height: 40px">
+        <img id="arsenal" src="{{post.image.url }}" "width:40px;" "height: 40px">
       </div>
       <h3>{{post.title}}</h3>
       <!--== CONTENT ==-->
@@ -90,7 +90,7 @@
 <h3 class="otherstories"> OTHER STORIES </h3>
 <div class=" grey"></div>
 <div class="section2">
-  <img src="{% static 'img/Yellow_bus,_lagos_state.jpg' %}">
+  <a href="{% url 'stories' %}"><img src="{% static 'img/Yellow_bus,_lagos_state.jpg' %}"></a>
   <p><b>FUEL SCARCITY</b><br/>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </p>
@@ -98,14 +98,14 @@
 <hr/>
 
 <div class="section2">
-  <img src="{% static 'img/Davido.jpg' %}">
+  <a href="{% url 'stories' %}"><img src="{% static 'img/Davido.jpg' %}"></a>
   <p><b>ENTERTAINMENT</b><br/>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </p>
 </div>
 <hr/>
 <div class="section2">
-  <img src="{% static 'img/russia-war.jpeg' %}">
+  <a href="{% url 'stories' %}"><img src="{% static 'img/russia-war.jpeg' %}"></a>
   <p><b>GLOBAL</b><br/>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </p>

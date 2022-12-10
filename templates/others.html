@@ -12,34 +12,111 @@
     <title>Home</title>
   </head>
   <body>
-    {% block nav %}
+
+    <!--=== navbar ===-->
     <header class="group">
       <img src="{% static 'img/myke.jpg' %}" class="logo" />
       <ul class="navigtion">
         <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="#trending" class="trend">Trending </a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="#"></a></li>
       </ul>
     </header>
 
     <button onclick="myFunction()" class="toggle-dark">DARK</button>
-    {% endblock nav %}
-    
-    <div class="header">
-      <h2>Welcome to Mykes Blog</h2>
+    <!--=== end of navbar ===-->
+
+
+
+
+    <!--=== CONTENT ===-->
+    <div class="content-container">
+      <div class="detail">
+        <h4 class="read-all"> READ ALL ...</h4>
+        
+        <img src="{% static 'img/Yellow_bus,_lagos_state.jpg' %}" />
+        <h1> Fuel Scarcity</h1>
+        <p>
+          Ejigbo Satellite Depot of the Independent Petroleum Marketers Association 
+          of Nigeria (IPMAN) has urged the Nigerian National Petroleum Company Ltd. 
+          (NNPCL) to give same window given to Major Oil Marketers Association of 
+          Nigeria (MOMAN) to buy fuel at regulated depot price of N148.17 per litre.  
+
+          The Chairman of IPMAN Ejigbo Depot, Mr Akin Akinrinade, made the appeal in 
+          Lagos on Wednesday while addressing the media on the price disparity of 
+          petrol to IPMAN members by depot owners.
+        </p>
+      </div>
+      <!--==== 2nd content ===-->
+      <div class="line"></div>
+      <div class="detail">
+        <img src="{% static 'img/Davido.jpg' %}" />
+        <h1> Music</h1>
+        <p>
+          A music expert and former Head of Music at the British international 
+          School Lekki, Lagos, Shosanya Babatunde Oluwaseyi, has extolled the 
+          virtues of Afrobeats star, David Adedeji Adeleke, popularly known as 
+          Davido, a Nigerian American singer, songwriter and record producer on 
+          his 30th birthday.
+        </p>
+      </div>
+      <!--==== 3rd content ===-->
+      <div class="line"></div>
+      <div class="detail">
+        <img src="{% static 'img/russia-war.jpeg' %}" />
+        <h1>Russia & Ukraine Attack</h1>
+        <p>
+          The head of Nato has expressed worry that the fighting in Ukraine could 
+          spin out of control and become a war between Russia and Nato, according 
+          to an interview released on Friday. “If things go wrong, they can go 
+          horribly wrong,” Nato’s secretary general, Jens Stoltenberg, said in 
+          remarks to Norwegian broadcaster NRK.
+        </p>
+      </div> 
     </div>
-    
 
 
-    <!--===ACTUAL CONTENT==-->
-    {% block content %} {% endblock content %}
-    <!--=== END OF ACTUAL CONTENT ===-->
 
-    
-    <hr />
+    <!--=== SIDE CONTENT ===-->
+    <div class="side-container">
+      <h3>SPORT</h3>
+      <div class="side-detail">
 
-    {% block footer %}
+        <a href="{% url 'home' %}"><img src="{% static 'img/skysports-cristiano-ronaldo_5926247.jpg' %}" /></a>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <!--==== 2nd content ===-->
+      <div class="line"></div>
+      <div class="side-detail">
+        <a href="{% url 'home' %}"><img src="{% static 'img/arsenal.jpg' %}" /></a>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+
+      <div class="line"></div>
+      <div class="news-letter">
+        <h3>News Letter</h3>
+        <p>Subscribe to our news letter </p>
+        <input type="text" placeholder="  Email..."></input>
+        <button type="submit" placeholder="submit">SEND</button>
+      </div>
+
+      <!--===SECTION 2===-->
+      <h3>POLITICS</h3>
+      <div class="side-detail">
+
+        <img src="{% static 'img/Tinubu-Buhari.jpg' %}" />
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+ 
+      <!--==== 3rd content ===-->
+      <div class="line"></div>
+      <h3>TECH</h3>
+      <div class="side-detail">
+        <img src="{% static 'img/openaijpeg.jpeg' %}" />
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+    </div>  
+
     <div class="footer">
       <h3 class="myke-reports">MYKE REPORTS</h3>
       <div class="white-line"></div>
@@ -71,16 +148,7 @@
       <p class="copyright"><small> Copyright &#169 2022 Myke Reports, Inc. All rights reserved. — Privacy Policy </small> </p>
       <p class="copyright"><small><i>Powered by Michael</i></small></p>
     </div>
-    {% endblock footer %}
-    <!--== FOR THE NAV BAR ICONS ==-->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+
     <!--== FOR DARK MODE ==-->
     <script>
       function myFunction() {
@@ -89,8 +157,141 @@
       }
     </script>
 
-    <!--== CSS CODE ==-->
     <style>
+      .content-container {
+        width: 50%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        position:relative;
+
+      }
+
+      .read-all{
+        margin-top:10px;
+      }
+
+      .line{
+        width:80%;
+        margin-right:20%;
+        margin-bottom:20px;
+        height:8px;
+        border-top-right-radius:20px;
+        border-bottom-right-radius:20px;
+        background-color:orange;
+      }
+
+
+      .detail img {
+        width: 95%;
+        margin-top:10px;
+        margin-bottom:20px;
+        border-radius:10px;
+      }
+
+      .detail p{
+        margin-bottom:40px;
+      }
+
+      @media screen and (max-width: 700px) {
+        .detail p{
+          margin-bottom:10px;
+          font-size:12px;
+        }
+
+        .detail img {
+          width: 100%;
+          height:200px;
+          margin-top:15px;
+          margin-bottom:20px;
+          object-fit:cover;
+          border-radius:10px;
+        }
+
+        .line{
+          width:80%;
+          margin-right:20%;
+          margin-bottom:20px;
+          height:8px;
+          border-top-right-radius:20px;
+          border-bottom-right-radius:20px;
+          background-color:orange;
+        }
+
+        .side-detail img {
+          width: 90%;
+          height:100px;
+          margin-bottom:30px;
+          object-fit:cover;
+        }
+
+
+
+      }  
+
+
+
+      /*== SIDE CONTENT ==*/
+      .side-container {
+        width: 36%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        position: absolute;
+        right: 0;
+        top:150px;
+      }
+
+      .side-detail img {
+        width: 90%;
+        margin-bottom:40px;
+        object-fit:cover;
+        border-radius:10px;
+      }
+
+      .news-letter{
+        color:black;
+        background-color:grey;
+        margin-top:15px;
+        margin-bottom:40px;
+      }
+
+      .news-letter h3{
+        margin-left:5px;
+      }
+      .news-letter p{
+        margin-left:5px;
+      }
+
+
+      .news-letter input{
+        width:95%;
+        height:30px;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        border-top-left-radius:15px;
+        border-bottom-left-radius:15px;
+      }
+
+      .news-letter button{
+        width:60px;
+        height:25px;
+        background-color:#273f87;
+        color:white;
+        margin-left:50px;
+        margin-top:10px;
+        margin-bottom:10px;
+        border-radius:10px;
+      }
+
+      
+
+
+
+
+
+
+
+
+
       * {
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
@@ -222,170 +423,12 @@
       }
       /* == END OF DARK MODE == */
 
-      /*== READMORE ==*/
-      .btn {
-        display: inline-block;
-        border:3px solid black;
-        background: linear-gradient(
-          rgb(70, 70, 207) 0%,
-          rgb(139, 139, 176) 30%
-        );
-        color: #fff;
-        padding: 8px 20px;
-        text-decoration: none;
-        margin: 30px 30px;
-        border-radius: 30px;
-        transition: 0.5s;
-      }
-
-      .btn:hover {
-        background: #563434;
-      }
 
 
 
-      /* == Header/Blog Title == */
-      .header {
-        padding: 50px;
-        text-align: center;
-      }
-
-      /* Create two unequal columns that floats next to each other */
-      /* Left column */
-      .leftcolumn {
-        float: left;
-        margin-left: 20px;
-        width: 45%;
-      }
-
-      /* Right column */
-      .rightcolumn {
-        float: right;
-        width: 35%;
-        padding-left: 20px;
-      }
-
-      /* Fake image */
-      .fakeimg {
-        width: 93%;
-        padding: 1px;
-        border-radius:20px;
-
-
-      }
-      .fakeimg img{
-        border-radius:20px;
-      }
-
-      .readalso{
-        color:grey;
-      }
-
-      /* Add a card effect for articles */
-      .card {
-        padding: 25px;
-        margin-top: 20px;
-  
-      }
-
-      .card input{
-        height:35px;
-        border-radius:30px;
-      }
 
 
 
-      /*--=== SEND BTN IN ABOUT PAGE ===--*/
-      .submit{
-        margin-top:10px;
-        margin-bottom:10px;
-        width:90px;
-        height:35px;
-        padding:3px;
-        color:white;
-        background-color:#1484cd;
-        cursor:pointer;
-      }
-
-      .line{
-        height:15px;
-        width:80%;
-        margin-left:10%;
-        margin-right:10%;
-        border-radius:2px;
-        color:grey;
-      }
-      /*--== AFTER SEND BTN AND STYLED LINE ==--*/
-
-      .row {
-        padding: 2px;
-        margin-left: 7px;
-        margin-right: 7px;
-      }
-
-      .card img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-      }
-      .column-66 {
-        float: left;
-        width: 50.66666%;
-      
-        padding: 5px;
-      }
-
-      /* 1/3 column */
-      .column-33 {
-        float: left;
-        width: 33.33333%;
-        padding: 20px;
-      }
-
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-
-
-      .section2{
-        width:100%;
-        display:inline-flex;
-      }
-
-      .section2 img{
-        width:200px;
-        height:200px;
-        border-radius:10px;
-        margin-left:20px;
-        margin-right:20px;
-        margin-top:20px;
-        margin-bottom: 40px;
-        object-fit: cover;
-      }
-
-      .section2 p{
-        margin-top:20px;
-        margin-bottom:20px;
-        height:230px;
-        width:50%;
-      }
-      .otherstories{
-        text-align:center;
-        justify-content:center;
-        margin-bottom:10px;
-        color:grey;
-      }
-      .grey{
-        height:5px;
-        background-color:grey;
-        margin:5px 10%;
-        width:80%;
-        border-radius:4px;
-        margin-bottom:20px;
-      }
 
 
       /*==== Footer ====*/
@@ -508,23 +551,6 @@
         }
       }
 
-      /* Add responsiveness - make the columns appear on top of each other instead of next to each other on small screens */
-      @media screen and (max-width: 1000px) {
-        .column-66,
-        .column-33 {
-          width: 100%;
-          text-align: center;
-        }
-      }
-      /* Fake image */
-      .fakeimg {
-        width: 90%;
-        padding: 1px;
-        border-radius:20px;
-        background-color:#fff;
-
-
-      }
     </style>
   </body>
 </html>
