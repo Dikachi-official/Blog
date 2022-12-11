@@ -19,6 +19,7 @@
     </div>
 
 
+
     <!--== SIDE DISPLAY OF ADVERT BESIDE TRENDING==-->
     <div class="rightcolumn">
       <div class="card">
@@ -27,6 +28,7 @@
         <br/>
         <div class="fakeimg"><img src="{% static 'img/playermain.png' %}"/></div>
         <p>Premier League season is back. Tune in</p>
+        <div class="orange-line"></div>
         <br /> 
       </div>
   </div> 
@@ -36,10 +38,14 @@
     <!--== SIDE DISPLAY OF ADVERT ==-->
     <div class="rightcolumn">
       <div class="card"> 
-        <div class="fakeimg"><img src="{% static 'img/Tinubu-Buhari.jpg' %}"/></div>
-        <p>Update on Nigerias' upcoming Presidential election</p>
+        <div id="politics" class="fakeimg"><img src="{% static 'img/Tinubu-Buhari.jpg' %}"/></div>
+        <p><b>Update on Nigerias' upcoming Presidential election</b>
+          <br/>
+          <hr/>
+          President Buhari vows to support APC presidential aspirant
+        </p>
+        <div class="orange-line"></div>
         <br />
-
       </div>
     </div>
 
@@ -59,16 +65,17 @@
 <div>
   <hr style="color: blue";/>
   <h4 class="readalso"> READ ALSO</h4>
-  <p>"My husband na odogwu": Nigerian lady hypes her rich hubby, shares his video</p>
+  <p>"My husband na odogwu": Nigerian lady hypes her rich hubby, dances for him.</p>
   <hr style="color: blue";/>
 
 </div>
+
 <div class="container">
   {% for post in posts %}
   <div class="row">
     <div class="column-66">
       <div class="fakeimg" style="height: 200px">
-        <img id="arsenal" src="{{post.image.url }}" "width:40px;" "height: 40px">
+        <img id="arsenal" src="{{post.image.url }}" >
       </div>
       <h3>{{post.title}}</h3>
       <!--== CONTENT ==-->
@@ -83,6 +90,7 @@
       </p>
        <!--== END OF CONTENT ==--> 
       <a href="{% url  'readmore' post.slug %} " class="btn">Read More &#8594</a>
+      <div class="orange-line1"></div>
     </div>
   </div>
   {% endfor %}
@@ -90,7 +98,7 @@
 <h3 class="otherstories"> OTHER STORIES </h3>
 <div class=" grey"></div>
 <div class="section2">
-  <a href="{% url 'stories' %}"><img src="{% static 'img/Yellow_bus,_lagos_state.jpg' %}"></a>
+  <a href="{% url 'stories' %}#fuel-scarcity"><img src="{% static 'img/Yellow_bus,_lagos_state.jpg' %}"></a>
   <p><b>FUEL SCARCITY</b><br/>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </p>
@@ -98,14 +106,14 @@
 <hr/>
 
 <div class="section2">
-  <a href="{% url 'stories' %}"><img src="{% static 'img/Davido.jpg' %}"></a>
+  <a href="{% url 'stories' %}#entertainment"><img src="{% static 'img/Davido.jpg' %}"></a>
   <p><b>ENTERTAINMENT</b><br/>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </p>
 </div>
 <hr/>
 <div class="section2">
-  <a href="{% url 'stories' %}"><img src="{% static 'img/russia-war.jpeg' %}"></a>
+  <a href="{% url 'stories' %}#Ukraine-attack"><img src="{% static 'img/russia-war.jpeg' %}"></a>
   <p><b>GLOBAL</b><br/>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </p>

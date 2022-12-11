@@ -293,6 +293,28 @@
         border-radius:30px;
       }
 
+      .orange-line{
+        width:100%;
+        margin-bottom:20px;
+        margin-top:20px;
+        height:8px;
+        border-top-left-radius:20px;
+        border-bottom-left-radius:20px;
+        background-color:orange;
+      }
+
+      .orange-line1{
+        width:90%;
+        margin-right:10%;
+        margin-bottom:20px;
+        margin-top:10px;
+        margin-left:0;
+        height:8px;
+        border-top-right-radius:20px;
+        border-bottom-right-radius:20px;
+        background-color:orange;
+      }
+
 
 
       /*--=== SEND BTN IN ABOUT PAGE ===--*/
@@ -499,6 +521,103 @@
         font-size:15px;
       }
 
+
+      /*=== Responsive layout of below 250px ===*/
+      @media screen and (max-width: 250px) {
+        body{
+          width:100%;
+        }
+        .section2{
+          width:100%;
+        }
+        .section2 img{
+          width:60%;
+          object-fit:cover;
+        }
+        .section2 p{
+          font-size:10px;
+          width:40%;
+        }
+        footer{
+          width:100%;
+        }
+        .group header{
+          width:250px;
+        }
+      }  
+
+
+      
+
+      /*=== Responsive layout of below 330px ===*/
+      @media screen and (max-width: 330px) {
+        .btn{
+          width:105px;
+          font-size:13px;
+        }
+        .container{
+          width:100%;
+        }
+        .row{
+          width:100%;
+        }
+        .column-66{
+          width:100%;
+        }
+        .column-66 p{
+          width:110%;
+        }
+        .column-66 img{
+          width:100%;
+        }
+
+        .fakeimg{
+          width:100%;
+        }
+
+        .fakeimg img{
+          width:100%;
+          object-fit:cover;
+        }
+      } 
+      
+      
+
+      /*=== Responsive layout of below 400px ===*/
+      @media screen and (max-width: 400px) {
+        body{
+          width:100%;
+        }
+        .btn{
+          height:45px;
+          font-size:11px;
+          padding:10px 10px;
+        }
+
+        .section2{
+          width:100%;
+        }
+
+        .section2 img{
+          width:80%;
+          object-fit:cover;
+        }
+
+        .section2 p{
+          width:35%;
+          font-size:14px;
+          margin-right:5%;
+          margin-bottom:10px
+
+        }
+
+        img{
+          object-fit:cover;
+        }
+      }
+
+
+
       /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
       @media screen and (max-width: 800px) {
         .leftcolumn,
@@ -507,6 +626,8 @@
           padding: 0;
         }
       }
+
+
 
       /* Add responsiveness - make the columns appear on top of each other instead of next to each other on small screens */
       @media screen and (max-width: 1000px) {
@@ -522,9 +643,9 @@
         padding: 1px;
         border-radius:20px;
         background-color:#fff;
-
-
       }
+
+
     </style>
   </body>
 </html>
