@@ -60,7 +60,7 @@
        <!--== END OF CONTENT ==--> 
        <form class="commentsection"action="." method="POST">
         {% csrf_token %}
-        <!--<textarea class="teaxtarea" placeholder ="Share your thoughts..." row="4" cols="40"></textarea>-->
+        <!--<textarea class="textarea" placeholder ="Share your thoughts..." row="4" cols="40"></textarea>-->
         {{form.body}}
         <input class="submit"type="submit" value="Send">
        </form>
