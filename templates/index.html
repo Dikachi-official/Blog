@@ -12,7 +12,8 @@
       <h5>Get Latest Stories around the world</h5>
       <id ="trending">
       <div class="fakeimg" style="height: 200px">
-        <img src="{{ trending.image.url }}" "width:40px;" "height: 40px">
+        <img src="{% static 'img/skysports-cristiano-ronaldo_5926247.jpg' %}" "width:40px;" "height: 40px">
+        <!--=== <img src="{{ trending.image.url }}" "width:40px;" "height: 40px"> ===-->
       </div>
       <p>{{trending.content|truncatechars:"200"}}</p>
       <a href="{% url  'readmore' trending.slug %}" class="btn">Read More &#8594</a>
