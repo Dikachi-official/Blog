@@ -84,27 +84,27 @@ WSGI_APPLICATION = 'blogproject.wsgi.application'
 
 
 # DEFAULT DB
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
 
 
 # POSTGRES DB
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        #'NAME': BASE_DIR / 'db.sqlite3',
-#        'NAME': 'railway',
-#        'USER': 'postgres',
-#        'PASSWORD' : 'aKHx1v79kHSrhp1DpJQn',
-#        'HOST': 'containers-us-west-175.railway.app',
-#        'PORT': '5824',
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD' : 'aKHx1v79kHSrhp1DpJQn',
+        'HOST': 'containers-us-west-175.railway.app',
+        'PORT': '5824',
+    }
+}
 
 
 # Password validation
