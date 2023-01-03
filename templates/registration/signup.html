@@ -1,7 +1,6 @@
 <html lang="english">
   <head>
     {% load static %}
-    {% load crispy_forms_tags %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" initial-scale="1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -79,29 +78,9 @@
     <form class="form" method="POST">
       {% csrf_token %}
       <div class="inputbox" id="register">
-        <!--<label>Username</label>
-        <br/>
-        {{form.username|as_crispy_field}}
-        <br />
-
-        <label>Email</label>
-        <br/>
-        {{form.email|as_crispy_field}}
-        <br />
         
-        <label>Password</label>
-        <br/>
-        {{form.password1|as_crispy_field}}
-        <br />
+        {{form.as_p}}
 
-        <label>Confirm Password</label>
-        <br/>
-        {{form.password2|as_crispy_field}}
-        <br />-->
-        {{form.username|as_crispy_field}}
-        {{form.email|as_crispy_field}}
-        {{form.password1|as_crispy_field}}
-        {{form.password2|as_crispy_field}}
       </div>
       <button class="btn200"type="submit">Register</button>
 
