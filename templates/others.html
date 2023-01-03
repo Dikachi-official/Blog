@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -18,8 +19,30 @@
       <img src="{% static 'img/myke.jpg' %}" class="logo" />
       <ul class="navigtion">
         <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'home' %}#trending" class="trend">Trending </a></li>
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="#"></a></li>
+
+        {% if request.user.is_authenticated %}
+        <li class="goat"><a href="#">Account<ion-icon name="caret-down-outline"></ion-icon></a>
+          <div class="sub-menu-1">
+            <ul>
+                <li><a style="color:white;" href="{% url 'logout' %}">Logout</a></li>
+                <p style="color:white; font-size:11px; text-align:center; margin:10px 10px;">{{ request.user.username }} <ion-icon name="person-outline"></ion-icon></p>
+            </ul>
+          </div>
+        </li>
+        <li></li>
+        {% else %}
+        <li class="goat"><a href="#">Account<ion-icon name="caret-down-outline"></ion-icon></a>
+          <div class="sub-menu-1">
+            <ul>
+                <li><a style="color:white;" href="{% url 'login' %}">Login</a></li>
+                <li><a style="color:white;" href="{% url 'signup' %}">Signup</a></li>
+            </ul>
+          </div>
+        </li>
+        <li></li>
+        {% endif %}
       </ul>
     </header>
 
@@ -57,7 +80,7 @@
           School Lekki, Lagos, Shosanya Babatunde Oluwaseyi, has extolled the 
           virtues of Afrobeats star, David Adedeji Adeleke, popularly known as 
           Davido, a Nigerian American singer, songwriter and record producer on 
-          his 30th birthday.
+          his 30th birthday
         </p>
       </div>
       <!--==== 3rd content ===-->
@@ -96,8 +119,20 @@
       <div class="news-letter">
         <h3>News Letter</h3>
         <p>Subscribe to our news letter </p>
-        <input type="text" placeholder="  Email..."></input>
-        <button type="submit" placeholder="submit">SEND</button>
+
+          {% if messages %}
+            {% for message in messages %}
+              <div style="color:black;"class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+              </div>  
+            {% endfor %}
+          {% endif %}
+
+        <form method="POST">
+          {% csrf_token %}
+          <input type="email" name="mail" placeholder="  Email..."></input>
+          <button type="submit">SEND</button>
+        </form>  
       </div>
 
       <!--===SECTION 2===-->
@@ -158,6 +193,9 @@
         var element = document.body;
         element.classList.toggle("dark-mode");
       }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
     <style>
@@ -248,7 +286,7 @@
         margin-right: 2.5%;
         position: absolute;
         right: 0;
-        top:150px;
+        top:165px;
       }
 
       .side-detail img {
@@ -303,18 +341,19 @@
 
 
 
-      * {
+      *{
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
-      body {
+      body{
         width: 100%;
         height: 100vh;
         color: black;
-        padding: 20px;
+        padding:13px;
+
         font-family: "Poppins", sans-serif;
       }
 
@@ -331,6 +370,23 @@
         box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
         box-shadow: -10px 5px 10px;
         background-color: rgb(11, 11, 46);
+      }
+
+      .group .logo{
+        width:45px;
+        height:45px;
+        border-radius:2rem;
+        margin-top:10px;
+    
+    }
+
+      .logo{
+        color:#333;
+        text-decoration:none;
+        font-size:1.5em;
+        font-weight:700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
       }
 
       .logo img {
@@ -370,8 +426,7 @@
       }
 
       header ul li {
-        list-style: none;
-        
+        list-style: none;      
         justify-content:center;
         align-items: center;
       }
@@ -393,13 +448,100 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
       }
-      ul .navigation {
+      .navigation {
         width: 50px;
       }
 
       header ul li {
         list-style: none;
       }
+
+      .sub-menu-1{
+        display:none;
+        font-size:13px;
+
+      }
+
+      .group ul .goat:hover{
+        padding-top:50px;
+      }
+
+      .group ul li:hover .sub-menu-1{  /*==to display when cursor hovers==*/
+        display:block;
+        position:relative;
+        background:#273f87;
+        margin-top:-10px;
+        margin-left:-20px;
+        margin-right:-15px;
+        margin-bottom:-30px;
+        text-decoration:none;
+        height:auto;
+      }
+
+      .group ul li:hover .sub-menu-1 ul{
+          display:block;
+          margin:8px;
+          text-decoration:none;
+      }
+
+
+
+      .group ul li:hover .sub-menu-1 ul li{
+          width:80px;
+          padding:15px;
+          padding-bottom:3px;
+          border-bottom:1px solid #000;
+          background:transparent;
+          border-radius:0;
+          text-align:left;
+          text-decoration:none;
+      }
+      
+      .group ul li:hover .sub-menu-1 ul li:nth-child(3){
+          border-bottom:none;
+      }
+      
+      .group ul li:hover .sub-menu-1 ul li a:hover{
+          color:b2ff00;
+      }
+      @media screen and (max-width: 343px){
+        .group .navigtion{
+          margin-left:5px;
+        }
+        .group .navigtion li{
+          font-size:10.5px;
+        }
+        .group ul li:hover .sub-menu-1{  /*==to display when cursor hovers==*/
+          display:block;
+          position:relative;
+          background:#273f87;
+          margin-top:-10px;
+          margin-left:-20px;
+          margin-right:-15px;
+          margin-bottom:-30px;
+          text-decoration:none;
+          height:auto;
+        }
+  
+        .group ul li:hover .sub-menu-1 ul{
+            display:block;
+            margin:8px;
+            text-decoration:none;
+        }
+        .group ul li:hover .sub-menu-1 ul li{
+            width:60px;
+            padding:13px;
+            padding-bottom:3px;
+            border-bottom:1px solid #000;
+            background:transparent;
+            border-radius:0;
+            text-align:left;
+            text-decoration:none;
+        }
+      }
+      
+      /* == END OF HEADER==*/
+  
       
       /* == END OF HEADER==*/
 
@@ -410,10 +552,10 @@
         margin-left: 1%;
         height: 28px;
         font-size: 11px;
-        margin-right: 80%;
+        margin-right: 60%;
         font-weight: bold;
         font-size: smaller;
-        margin-top: 80px;
+        margin-top: 120px;
         border-radius: 25px;
         color: white;
         width: 70px;
@@ -433,8 +575,6 @@
         width: 70px;
       }
       /* == END OF DARK MODE == */
-
-
 
 
 
@@ -560,7 +700,55 @@
           width: 100%;
           padding: 0;
         }
+        .group{
+          gap:3px;
+        }
+        .navigtion{
+          margin-left:15px;
+        }
+        .side-container {
+          width: 36%;
+          margin-left: 2.5%;
+          margin-right: 2.5%;
+          position: absolute;
+          right: 0;
+          top:170px;
+        }
       }
+
+      @media screen and (max-width: 414px) {
+        body{
+          width:100%;
+        }
+        .group{
+          width:100%;
+          max-width:100%;
+        }
+        header ul{
+          width:100%;
+          
+        }
+        header .navigtion .goat{
+          width:100%;
+        }
+        header .navigtion .goat a{
+          width:100%;
+          display:inline-flex;
+        }
+
+        header ul li{
+          width:100%;
+          font-size:12px;
+        }
+        header .navigtion{
+          width:100%;
+          font-size:12px;
+          gap:9px;
+        }
+        .footer{
+          width:100%;
+        }
+      } 
 
     </style>
   </body>

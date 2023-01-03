@@ -16,7 +16,9 @@
     <!--== SIDE DISPLAY OF ADVERT ==-->
     <div class="rightcolumn">
       <div class="card">
-        <input type="text" placeholder="   Search..">
+        <form>
+          <input type="search" placeholder="   Search.."/>
+        </form>  
         <br/>
         <br/>
         <div class="fakeimg"><img src="{% static 'img/playermain.png' %}"/></div>
@@ -73,13 +75,20 @@
        {% for comment in comments %}
        <div class="commentsection">
 
-          <div class="commentsectionname">{{request.user}} said: </div>
+          {% if request.user.is_authenticated %}
+          <div class="commentsectionname">{{request.user.username}} said: </div>
           <p>{{comment.body}}</p>
+          <hr/>
           <br/>
 
+          {% else %}
+          <div class="commentsectionname">{{request.user}} said: </div>
+          <p>{{comment.body}}</p>
 
-          
-
+          {% endif %}
+          <hr/>
+          <br/>
+           
        </div> 
        {% endfor %} 
 

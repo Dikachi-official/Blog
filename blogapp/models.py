@@ -1,6 +1,6 @@
-from django.db import models
-from django.contrib.auth.models import User         #CLASS FOR USERS WITHIN DJANGO AUTH SYSTEM
+from django.db import models      #CLASS FOR USERS WITHIN DJANGO AUTH SYSTEM
 from django.db.models.deletion import SET_NULL
+from django.contrib.auth.models import User
 
 # Create your models here.
 

@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css/' %}" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -19,12 +21,50 @@
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="#trending" class="trend">Trending </a></li>
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="#"></a></li>
+
+        {% if request.user.is_authenticated %}
+        <li class="goat"><a href="#">Account<ion-icon name="caret-down-outline"></ion-icon></a>
+          <div class="sub-menu-1">
+            <ul>
+                <li><a style="color:white;" href="{% url 'logout' %}">Logout</a></li>
+                <p style="color:white; font-size:11px; text-align:center; margin:10px 10px;">{{ request.user.username }} <ion-icon name="person-outline"></ion-icon></p>
+            </ul>
+          </div>
+        </li>
+        {% else %}
+        <li class="goat"><a href="#">Account<ion-icon name="caret-down-outline"></ion-icon></a>
+          <div class="sub-menu-1">
+            <ul>
+                <li><a style="color:white;" href="{% url 'login' %}">Login</a></li>
+                <li><a style="color:white;" href="{% url 'signup' %}">Signup</a></li>
+            </ul>
+          </div>
+        </li>
+        <li></li>
+        {% endif %}
       </ul>
     </header>
 
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+          <strong>{{ message }}</strong>
+        </div>  
+      {% endfor %}
+    {% endif %}
+
+    <!--==== FOR ALERT TO DISAPPEAR ===-->
+    <script>
+      setTimeout(() => {
+          $(".alert").alert("close")
+      }, 2000)
+    </script> 
+
     <button onclick="myFunction()" class="toggle-dark">DARK</button>
     {% endblock nav %}
+
+
     
     <div class="header">
       <h2>Welcome to Mykes Blog</h2>
@@ -56,10 +96,10 @@
           </p>
         </div> 
       </div> 
-      <P class="footer-info">Myke Blog is an outstanding, groundbreaking news website 
+      <p class="footer-info">Myke Blog is an outstanding, groundbreaking news website 
         that encourages citizen journalists to report ongoing corruption and 
         government malfeasance in Africa and globally.The site informs and prompts concerned citizens and activists globally.
-      </P>
+      </p>
       <br/>
       <h4 class="connect-new"> CONNECT WITH US </h4>
       <div class="footer-socials">
@@ -91,18 +131,19 @@
 
     <!--== CSS CODE ==-->
     <style>
-      * {
+      *{
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
-      body {
+      body{
         width: 100%;
         height: 100vh;
         color: black;
-        padding: 20px;
+        padding:13px;
+
         font-family: "Poppins", sans-serif;
       }
 
@@ -119,6 +160,23 @@
         box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
         box-shadow: -10px 5px 10px;
         background-color: rgb(11, 11, 46);
+      }
+
+      .group .logo{
+        width:45px;
+        height:45px;
+        border-radius:2rem;
+        margin-top:10px;
+    
+    }
+
+      .logo{
+        color:#333;
+        text-decoration:none;
+        font-size:1.5em;
+        font-weight:700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
       }
 
       .logo img {
@@ -158,8 +216,7 @@
       }
 
       header ul li {
-        list-style: none;
-        
+        list-style: none;      
         justify-content:center;
         align-items: center;
       }
@@ -188,8 +245,130 @@
       header ul li {
         list-style: none;
       }
+
+      .sub-menu-1{
+        display:none;
+        font-size:13px;
+
+      }
+      .group ul .goat:hover{
+        padding-top:50px;
+      }
+
+      .group ul li:hover .sub-menu-1{  /*==to display when cursor hovers==*/
+        display:block;
+        position:relative;
+        background:#273f87;
+        margin-top:-10px;
+        margin-left:-20px;
+        margin-right:-15px;
+        margin-bottom:-30px;
+        text-decoration:none;
+        height:auto;
+      }
+
+      .group ul li:hover .sub-menu-1 ul{
+          display:block;
+          margin:8px;
+          text-decoration:none;
+      }
+
+
+
+      .group ul li:hover .sub-menu-1 ul li{
+          width:80px;
+          padding:15px;
+          padding-bottom:3px;
+          border-bottom:1px solid #000;
+          background:transparent;
+          border-radius:0;
+          text-align:left;
+          text-decoration:none;
+      }
+      
+      .group ul li:hover .sub-menu-1 ul li:nth-child(3){
+          border-bottom:none;
+      }
+      
+      .group ul li:hover .sub-menu-1 ul li a:hover{
+          color:b2ff00;
+      }
+
+      @media screen and (max-width: 343px){
+        .group .navigtion{
+          margin-left:5px;
+        }
+        .group .navigtion li{
+          font-size:10.5px;
+        }
+        .group ul li:hover .sub-menu-1{  /*==to display when cursor hovers==*/
+          display:block;
+          position:relative;
+          background:#273f87;
+          margin-top:-10px;
+          margin-left:-20px;
+          margin-right:-15px;
+          margin-bottom:-30px;
+          text-decoration:none;
+          height:auto;
+        }
+  
+        .group ul li:hover .sub-menu-1 ul{
+            display:block;
+            margin:8px;
+            text-decoration:none;
+        }
+        .group ul li:hover .sub-menu-1 ul li{
+            width:60px;
+            padding:13px;
+            padding-bottom:3px;
+            border-bottom:1px solid #000;
+            background:transparent;
+            border-radius:0;
+            text-align:left;
+            text-decoration:none;
+        }
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .row .leftcolumn {
+          float: left;
+          width: 100%;
+          padding-right:10px;
+        }
+      }
+      @media screen and (max-width: 331px){
+        .group ul{
+          gap:2px;
+          width:100%;
+          font-size:10px;
+        }
+        .group ul li{
+          font-size:10px;
+        }
+
+        .group ul li:hover .sub-menu-1 ul li{
+          width:30px;
+          padding:9px;
+          padding-bottom:3px;
+          border-bottom:1px solid #000;
+          background:transparent;
+          border-radius:0;
+          text-align:left;
+          text-decoration:none;
+        }
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .row .leftcolumn {
+          float: left;
+          width: 90%;
+          padding-right:10px;
+        }
+
+      }  
+
       
       /* == END OF HEADER==*/
+  
 
 
 
@@ -198,10 +377,10 @@
         margin-left: 1%;
         height: 28px;
         font-size: 11px;
-        margin-right: 80%;
+        margin-right: 60%;
         font-weight: bold;
         font-size: smaller;
-        margin-top: 80px;
+        margin-top: 100px;
         border-radius: 25px;
         color: white;
         width: 70px;
@@ -303,6 +482,14 @@
         background-color:orange;
       }
 
+      .delete{
+        width:40px;
+        height:30px;
+        border:none;
+        border-radius:10px;
+        margin-bottom:10px;
+      }
+
       .orange-line1{
         width:90%;
         margin-right:10%;
@@ -371,6 +558,18 @@
         clear: both;
       }
 
+      .with-us-today{
+        width:70px;
+        height:30px;
+        padding:5px;
+        margin-top:15px;
+        margin-bottom:15px;
+        border-radius:5px;
+        text-decoration:none;
+        color:white;
+        background-color:#4169e1;
+      }
+
 
       .section2{
         width:100%;
@@ -393,6 +592,8 @@
         margin-bottom:20px;
         height:230px;
         width:50%;
+        padding-left:3px;
+        padding-right:3px;
       }
       .otherstories{
         text-align:center;
@@ -410,14 +611,92 @@
       }
 
 
+      /*=== ANOTHER SECTION ===*/
+      .coming-soon {
+        width:100%;
+        padding:15px;
+        background-color:orange;
+        color:#fff;
+
+      }
+      .coming-soon h3{
+        font-size:50px;
+        font-weight:1000;
+      }
+      .another-section{
+        width:100%;
+        background-color:orange;
+        color:#fff;
+        font-family:"Poppins", sans-serif;
+        margin-bottom:30px;
+        padding:10px;
+        display:inline-flex;
+        padding-bottom:20px;
+
+      }  
+      .another-section .img-awards{
+        width:30%;
+        margin-top:15px;
+        margin-right:2.5%;
+        margin-left:2.5%;
+      }
+      .another-section .img-asoebi{
+        width:30%;
+        margin-right:10px;
+        margin-left:10px;
+      }
+      .another-section p{
+        font-size:13px;
+        font-style:italic;
+        color:red;
+        font-weight:bold;
+        margin-bottom:10px;
+      }
+      .another-section .img-food{
+        width:30%;
+        margin-top:15px;
+        margin-right:2.5%;
+        margin-left:2.5%;
+      }
+      .another-section .img-awards img{
+        width:100%;
+        height:250px;
+        object-fit:cover;
+        float:left;
+      }
+      .another-section .img-awards img:hover{
+        object-fit:contain;
+      }
+      .another-section .img-asoebi img{
+        width:100%;
+        height:280px;
+        object-fit:contain;
+        align-items:center;
+        justify-content:center;
+      }
+      .another-section .img-asoebi img:hover{
+        object-fit:cover;
+      }
+      .another-section .img-food img{
+        width:100%;
+        float:right;
+        object-fit:cover;
+        height:250px;
+      }
+      .another-section .img-food img:hover{
+        object-fit:contain;
+      }
+
+      /*=== ANOTHER SECTION ===*/
+
+
       /*==== Footer ====*/
       .footer {
         width:100%;
-        padding: 20px;
         text-align: center;
         margin-top: 20px;
+        padding: 20px;
         color:white;
-        
         background-color: rgb(11, 11, 46);
         
       }
@@ -624,6 +903,13 @@
         .rightcolumn {
           width: 100%;
           padding: 0;
+        }
+        .group{
+          width:100%;
+        }
+        .group ul{
+          font-size:12px;
+          gap:10px;
         }
       }
 

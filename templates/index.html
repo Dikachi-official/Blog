@@ -3,6 +3,7 @@
 <div class="row">
   <div class="leftcolumn"
     <div class="card">
+      <p style="color:white;background-color:red; width:60px;font-style:italic; padding:3px; font-size:14px;"> SPORTS </p>
       <h2>{{trending.title}}</h2>
       <p id="trending"><b>Date :</b> {{trending.created_on}}
       </p>
@@ -15,7 +16,7 @@
         <img src="{% static 'img/skysports-cristiano-ronaldo_5926247.jpg' %}" "width:40px;" "height: 40px">
         <!--=== <img src="{{ trending.image.url }}" "width:40px;" "height: 40px"> ===-->
       </div>
-      <p>{{trending.content|truncatechars:"200"}}</p>
+      <p style="padding-right:10px;">{{trending.content|truncatechars:"200"}}</p>
       <a href="{% url  'readmore' trending.slug %}" class="btn">Read More &#8594</a>
     </div>
 
@@ -24,7 +25,9 @@
     <!--== SIDE DISPLAY OF ADVERT BESIDE TRENDING==-->
     <div class="rightcolumn">
       <div class="card">
-        <input type="text" placeholder="  Search..">
+        <form method="GET">
+          <input type="search" placeholder="  Search.."> 
+        </form>
         <br/>
         <br/>
         <div class="fakeimg"><img src="{% static 'img/playermain.png' %}"/></div>
@@ -32,7 +35,13 @@
         <div class="orange-line"></div>
         <br /> 
       </div>
-  </div> 
+  </div>
+  
+  
+  
+  
+
+
 </div>   
 
 
@@ -47,8 +56,23 @@
         </p>
         <div class="orange-line"></div>
         <br />
+        <br/>
+
+
+        <!--=== SIGNUP SECTION ===-->
+        <hr/>
+        <h4 style="width:40%; color:grey;"> OVER HERE</h4>
+        <p style="width:80%; margin-bottom:10px;">Sign Up with us today</p>
+        <a class="with-us-today" href="{% url 'signup' %}">Sign Up</a>
+        <br/>
+        <div class="orange-line"></div>
+        <br />
       </div>
     </div>
+
+
+
+
 
     <!--<div class="rightcolumn">
       {% for post in posts %}
@@ -72,6 +96,9 @@
 </div>
 
 <div class="container">
+  <p style="color:white;background-color:red; margin-bottom:10px;width:110px;font-style:italic; padding:3px; font-size:14px;">
+    MORE SPORTS 
+ </p>
   {% for post in posts %}
   <div class="row">
     <div class="column-66">
@@ -96,6 +123,28 @@
   </div>
   {% endfor %}
 </div>
+
+
+<!--=== ANOTHER SECTION ===-->
+<div class="coming-soon">
+  <h3>COMING SOON</h3>
+</div>  
+<div class="another-section">
+  <div class="img-food">
+    <p>Food and Delicacies</p>
+    <img src="{% static 'img/food.jpg' %}">
+  </div>  
+  <div class="img-asoebi">
+    <p>Styles and Trends</p>
+    <img src="{% static 'img/asoebi.jpeg' %}">
+  </div> 
+  <div class="img-awards">
+    <p>Awards and Recognitions</p>
+    <img src="{% static 'img/sweetspot.png' %}">
+  </div> 
+</div>  
+<!--=== END OF ANOTHER SECTION ===-->
+
 <h3 class="otherstories"> OTHER STORIES </h3>
 <div class=" grey"></div>
 <div class="section2">

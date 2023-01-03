@@ -1,0 +1,653 @@
+<html lang="english">
+  <head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" initial-scale="1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"/>  
+
+    <!--<link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css">-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.css">-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <header class="group">
+      <img style="width:50px; height:50px; border-radius:25px;" src="{% static 'img/myke.jpg' %}" class="logo" />
+      <ul class="navigtion">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'home' %}#trending" class="trend">Trending </a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+
+        {% if request.user.is_authenticated %}
+        <li class="goat"><a href="#">Account<ion-icon name="caret-down-outline"></ion-icon></a>
+          <div class="sub-menu-1">
+            <ul>
+                <li><a style="color:white;" href="{% url 'logout' %}">Logout</a></li>
+                <p style="font-size:13px;">{{ request.user.username }}</p>
+            </ul>
+          </div>
+        </li>
+        {% else %}
+        <li class="goat"><a href="#">Account<ion-icon name="caret-down-outline"></ion-icon></a>
+          <div class="sub-menu-1">
+            <ul>
+                <li><a style="color:white;" href="{% url 'login' %}">Login</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#"></a></li>
+        {% endif %}
+      </ul>
+    </header>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+          <strong>{{ message }}</strong>
+        </div>  
+      {% endfor %}
+    {% endif %}
+
+    <!--==== FOR ALERT TO DISAPPEAR ===-->
+    <script>
+      setTimeout(() => {
+          $(".alert").alert("close")
+      }, 2000)
+    </script>  
+
+    <button onclick="myFunction()" class="toggle-dark">DARK</button>
+
+           
+    <div class="Signup-text">
+      <h2>Register</h2>
+    </div>
+    <div class="if-account">
+        <p>
+          Already have an account?
+          <a style="color:blue; text-decoration:none;" href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+  
+
+
+    <form class="form" method="POST">
+      {% csrf_token %}
+      <div class="inputbox" id="register">
+        <!--<label>Username</label>
+        <br/>
+        {{form.username|as_crispy_field}}
+        <br />
+
+        <label>Email</label>
+        <br/>
+        {{form.email|as_crispy_field}}
+        <br />
+        
+        <label>Password</label>
+        <br/>
+        {{form.password1|as_crispy_field}}
+        <br />
+
+        <label>Confirm Password</label>
+        <br/>
+        {{form.password2|as_crispy_field}}
+        <br />-->
+        {{form.username|as_crispy_field}}
+        {{form.email|as_crispy_field}}
+        {{form.password1|as_crispy_field}}
+        {{form.password2|as_crispy_field}}
+      </div>
+      <button class="btn200"type="submit">Register</button>
+
+    </form>
+
+    <hr/>
+
+    <!--=== FOOTER ===-->
+    <div class="footer">
+      <h3 class="myke-reports">MYKE REPORTS</h3>
+      <div class="white-line"></div>
+      <div class="footer-right">
+        <h4 class="sections"> SECTIONS</h4>
+        <br/>
+        <div class="white-line2"></div>
+        <br/>
+        <div class="sections-child-container">
+          <p class="sections-child">
+            <a href="{% url 'home' %}">Home</a><br/>
+            <a href="{% url 'home' %}">Trending</a><br/>
+            Support 
+          </p>
+        </div> 
+      </div> 
+      <P class="footer-info">Myke Blog is an outstanding, groundbreaking news website 
+        that encourages citizen journalists to report ongoing corruption and 
+        government malfeasance in Africa and globally.The site informs and prompts concerned citizens and activists globally.
+      </P>
+      <br/>
+      <h4 class="connect-new"> CONNECT WITH US </h4>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/dikachi-n-249699213" target="_blank"><img src="{% static 'img/footer-linkedin.png' %}"></a>
+        <a href="https://github.com/Dikachi-official" target="_blank"><img src="{% static 'img/footer-github.png' %}"></a>
+      </div>  
+      <hr/> 
+      <br/> 
+      <p class="copyright"><small> Copyright &#169 2022 Myke Reports, Inc. All rights reserved. — Privacy Policy </small> </p>
+      <p class="copyright"><small><i>Powered by Michael</i></small></p>
+    </div>
+
+  </body>
+  <!--== FOR DARK MODE ==-->
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+  </script>
+
+  <!--== CSS CODE ==-->
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      color: black;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* == NAVBAR == */
+    .group {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      padding: 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: -10px 5px 10px;
+      background-color: rgb(11, 11, 46);
+    }
+
+    .logo img {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      width: 45px;
+      height: 45px;
+      border-radius: 2rem;
+      left: -60px;
+      margin-top: 10px;
+    }
+
+    .fakeimg img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .group {
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      width: 100%;
+    }
+
+    ul {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      font-weight: 300;
+      width: 100%;
+      height: 80px;
+    }
+
+    header ul li {
+      list-style: none;
+      
+      justify-content:center;
+      align-items: center;
+    }
+
+    header ul li a {
+      position: relative;
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      gap:8px;
+    }
+
+    .logo {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    ul .navigation {
+      width: 50px;
+    }
+
+    header ul li {
+      list-style: none;
+    }
+
+    .sub-menu-1{
+      display:none;
+
+    }
+    .group ul .goat:hover{
+      padding-top:50px;
+    }
+
+    .group ul li:hover .sub-menu-1{  /*==to display when cursor hovers==*/
+      display:block;
+      position:relative;
+      background:#273f87;
+      margin-top:-10px;
+      margin-left:-20px;
+      margin-right:-15px;
+      margin-bottom:-30px;
+      text-decoration:none;
+      height:auto;
+    }
+
+    .group ul li:hover .sub-menu-1 ul{
+        display:block;
+        margin:8px;
+        text-decoration:none;
+    }
+
+
+
+    .group ul li:hover .sub-menu-1 ul li{
+        width:80px;
+        padding:15px;
+        padding-bottom:3px;
+        border-bottom:1px solid #000;
+        background:transparent;
+        border-radius:0;
+        text-align:left;
+        text-decoration:none;
+    }
+    
+    .group ul li:hover .sub-menu-1 ul li:nth-child(3){
+        border-bottom:none;
+    }
+    
+    .group ul li:hover .sub-menu-1 ul li a:hover{
+        color:b2ff00;
+    }
+    @media screen and (max-width: 343px){
+      .group .navigtion{
+        margin-left:5px;
+      }
+      .group .navigtion li{
+        font-size:10.5px;
+      }
+      .group ul li:hover .sub-menu-1{  /*==to display when cursor hovers==*/
+        display:block;
+        position:relative;
+        background:#273f87;
+        margin-top:-10px;
+        margin-left:-20px;
+        margin-right:-15px;
+        margin-bottom:-30px;
+        text-decoration:none;
+        height:auto;
+      }
+
+      .group ul li:hover .sub-menu-1 ul{
+          display:block;
+          margin:8px;
+          text-decoration:none;
+      }
+      .group ul li:hover .sub-menu-1 ul li{
+          width:45px;
+          padding:13px;
+          padding-bottom:3px;
+          border-bottom:1px solid #000;
+          background:transparent;
+          border-radius:0;
+          text-align:left;
+          text-decoration:none;
+      }
+    }
+    
+    /* == END OF HEADER==*/
+
+    /* == END OF HEADER==*/
+
+
+
+    /* == DARK MODE == */
+    .toggle-dark {
+      margin-left: 1%;
+      height: 28px;
+      font-size: 11px;
+      margin-right: 60%;
+      font-weight: bold;
+      font-size: smaller;
+      margin-top: 80px;
+      border-radius: 25px;
+      color: white;
+      width: 70px;
+      background: linear-gradient(
+        rgb(70, 70, 207) 0%,
+        rgb(139, 139, 176) 30%
+      );
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .submit {
+      color: white;
+      background-color: lightblue;
+      border-radius: 2rem;
+      width: 70px;
+    }
+    /* == END OF DARK MODE == */
+
+
+    /*=== REGISTER AND HAVE ACCOUNT ===*/
+    .Signup-text{
+      text-align:center;
+    }
+    .if-account{
+      text-align:center; 
+    }
+
+
+    /*=== FORM ==*/
+    .form{
+      margin-top:30px;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .form input{
+      height:30px;
+      width:45%;
+      border-radius:20px;
+      margin-bottom:20px;
+    }
+
+    .form .btn200{
+      margin-top:20px;
+      margin-bottom:20px;
+      padding-top:8px;
+      padding-left:20px;
+      padding-right:20px;
+      padding-bottom:15px;
+      width:110px;
+      height:40px;
+      background-color:#4169e1;
+      color:white;
+      border-radius:20px;
+    }
+
+
+    /*==== Footer ====*/
+    .footer {
+      width:100%;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+      color:white;
+      
+      background-color: rgb(11, 11, 46);
+      
+    }
+    .myke-reports{
+      width:150px;
+      margin-top:20px;
+      font-weight:800;
+      margin-bottom:5px;
+      text-align: left;
+      justify-content: left;
+      align-items:left;
+
+    }
+
+    .white-line{
+      width:150px;
+      height:8px;
+      background-color:white;
+      margin-bottom:20px;
+
+    }
+
+    .footer-right{
+      width:30%;
+      justify-content:right;
+      float:right;
+      margin-left:5%;
+      margin-right:5%;
+      
+    }
+
+    .footer-right a{
+      color:white;
+      text-decoration:none;
+    }
+
+    .sections-child a{
+      margin-bottom:10px;
+    }
+
+    .footer-right a:hover{
+      color:grey;
+      font-size:10px;
+      text-decoration:none;
+    }
+
+    .sections{
+      float:right;
+      width:100px;
+    }
+
+    .white-line2{
+      width:100px;
+      height:5px;
+      background-color:white;
+      float:right;
+
+    }
+
+    .sections-child-container{
+      justify-content:right;
+      float:right;
+      width:60px;
+    }
+
+    .sections-child{
+      font-size:15px;
+      text-decoration:none;
+    }
+
+
+    .footer .connect-new{
+      margin-top:20px;
+      margin-right:10px;
+      font-weight:900;
+      margin-bottom:20px;
+      text-align: center;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .footer-socials{
+      display:inline-flex;
+      margin-bottom:20px;
+      width:15%;
+      text-align: center;
+      gap:15px;
+      justify-content: space-between;
+      align-items:center;
+      
+    }
+    .footer-info{
+      margin-bottom:20px;
+      width:50%;
+      margin-left:2.5%;
+      margin-right:2.5%;
+      font-size:12px;
+    }
+
+    .copyright{
+      font-size:15px;
+    }
+
+
+    /*=== Responsive layout of below 250px ===*/
+    @media screen and (max-width: 250px) {
+      body{
+        width:100%;
+      }
+      .section2{
+        width:100%;
+      }
+      .section2 img{
+        width:60%;
+        object-fit:cover;
+      }
+      .section2 p{
+        font-size:10px;
+        width:40%;
+      }
+      footer{
+        width:100%;
+      }
+      .group header{
+        width:250px;
+      }
+    }  
+
+
+
+
+    /*=== Responsive layout of below 330px ===*/
+    @media screen and (max-width: 330px) {
+      .btn{
+        width:105px;
+        font-size:13px;
+      }
+      .container{
+        width:100%;
+      }
+      .row{
+        width:100%;
+      }
+      .column-66{
+        width:100%;
+      }
+      .column-66 p{
+        width:110%;
+      }
+      .column-66 img{
+        width:100%;
+      }
+
+      .fakeimg{
+        width:100%;
+      }
+
+      .fakeimg img{
+        width:100%;
+        object-fit:cover;
+      }
+    } 
+    
+    
+
+    /*=== Responsive layout of below 400px ===*/
+    @media screen and (max-width: 400px) {
+      body{
+        width:100%;
+      }
+      .btn{
+        height:45px;
+        font-size:11px;
+        padding:10px 10px;
+      }
+
+      .section2{
+        width:100%;
+      }
+
+      .section2 img{
+        width:80%;
+        object-fit:cover;
+      }
+
+      .section2 p{
+        width:35%;
+        font-size:14px;
+        margin-right:5%;
+        margin-bottom:10px
+
+      }
+
+      img{
+        object-fit:cover;
+      }
+    }
+
+
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+      .leftcolumn,
+      .rightcolumn {
+        width: 100%;
+        padding: 0;
+      }
+      .group{
+        width:100%;
+      }
+      .group ul{
+        font-size:12px;
+        gap:10px;
+      }
+    }
+
+
+
+    /* Add responsiveness - make the columns appear on top of each other instead of next to each other on small screens */
+    @media screen and (max-width: 1000px) {
+      .column-66,
+      .column-33 {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    /* Fake image */
+    .fakeimg {
+      width: 90%;
+      padding: 1px;
+      border-radius:20px;
+      background-color:#fff;
+    }
+  </style>  
+
+</html>  
