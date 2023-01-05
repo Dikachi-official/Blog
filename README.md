@@ -1,6 +1,6 @@
 ![Blog-Landing](https://user-images.githubusercontent.com/86185353/210870165-9769b69a-53e7-4d61-8d73-62010748b1cf.jpg)
 ![Screenshot (20230105-205027)](https://user-images.githubusercontent.com/86185353/210870336-83985732-e47a-4f3a-8a32-49d0f8f02686.jpg)
-<h2>Landing Page</h2>
+<h2>Landing Page & Other Section Layout</h2>
 <hr>
 <h1>Blog Site made with Django framework</h1>
 <p> A simple blog site offering various functionalities like comment, about, and trending section and search feature</p>
