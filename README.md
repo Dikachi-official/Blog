@@ -7,12 +7,12 @@
 <h2>Built With</h2>
 <strong><i><p>Major Languages</p><i></strong>
 <hr>
-<input type="checkbox"><label for="title">HTML</label><br>
-<input type="checkbox"><label for="title">CSS</label><br>
-<input type="checkbox"><label for="title">PYTHON</label><br>
-<input type="checkbox"><label for="title">JAVASCRIPT</label><br>
+<li>HTML</li>
+<li>CSS</li>
+<li>PYTHON</li>
+<li>JAVASCRIPT</li>
 <h2>Framework</h2>
-<input type="checkbox"><label for="title">DJANGO</label><br>
+<li>DJANGO</li><br>
 <h2>Prerequisites</h2>
 <ul>
 <li> A web Browser (like Google Chrome...)</li>
