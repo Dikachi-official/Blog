@@ -92,7 +92,6 @@ WSGI_APPLICATION = 'blogproject.wsgi.application'
 #}
 
 
-
 # POSTGRES DB
 DATABASES = {
     'default': {
